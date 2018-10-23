@@ -57,11 +57,10 @@ before_install:
   - composer config -g http-basic.repo.magento.com $MAGENTO_USERNAME $MAGENTO_PASSWORD
   - composer global require hirak/prestissimo:0.3.4
   - chmod +x ./Resources/travis/*
+  - ./Resources/travis/prepare_php.sh
   - ./Resources/travis/before_install.sh
 
 install:
-  - mkdir -p app/etc var
-  - composer require magento/magento2-base ~$MAGENTO_VERSION --no-update --prefer-lowest
   - composer install --prefer-dist
 
 cache:
