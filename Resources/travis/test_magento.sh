@@ -19,6 +19,7 @@ else
   VERSION="${MAGENTO_VERSION%.*}.*"
 fi
 
+cp $TRAVIS_BUILD_DIR/auth.json .
 echo "==> Installing Magento 2 $MAGENTO_EDITION (Version $VERSION) ..."
 echo "composer create-project --repository=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento"
 composer create-project --repository=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento

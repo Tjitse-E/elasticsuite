@@ -9,4 +9,5 @@ else
   VERSION="~${MAGENTO_VERSION}"
 fi
 
-composer require magento/magento2-base $VERSION --no-update
+echo "==> Require magento/magento2-base package (Version $VERSION) ..."
+composer require magento/magento2-base $VERSION --no-update -q

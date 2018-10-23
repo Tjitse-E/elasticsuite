@@ -54,7 +54,7 @@ before_install:
   - yes | sudo $ES_HOME/bin/elasticsearch-plugin install analysis-phonetic
   - sudo service elasticsearch start
   - sleep 5
-  - composer config -g http-basic.repo.magento.com $MAGENTO_USERNAME $MAGENTO_PASSWORD
+  - echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_USERNAME}\",\"password\":\"${MAGENTO_PASSWORD}\"}}}" > auth.json
   - composer global require hirak/prestissimo:0.3.4
   - chmod +x ./Resources/travis/*
   - ./Resources/travis/prepare_php.sh
