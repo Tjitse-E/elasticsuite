@@ -4,7 +4,6 @@ set -e
 trap '>&2 echo Error: Command \`$BASH_COMMAND\` on line $LINENO failed with exit code $?' ERR
 
 # Prepare a full Magento2 project with proper version.
-echo "==> Installing Magento 2 $MAGENTO_EDITION (Version $MAGENTO_VERSION) ..."
 cd ..
 
 # If no stability configured, do nothing and keep installing the given Magento2 version.
@@ -20,6 +19,7 @@ else
   VERSION="${MAGENTO_VERSION%.*}.*"
 fi
 
+echo "==> Installing Magento 2 $MAGENTO_EDITION (Version $VERSION) ..."
 composer create-project --repository=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento --quiet
 cd "magento"
 
