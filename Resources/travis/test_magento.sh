@@ -20,7 +20,8 @@ else
 fi
 
 echo "==> Installing Magento 2 $MAGENTO_EDITION (Version $VERSION) ..."
-composer create-project --repository=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento --quiet
+composer create-project --repository=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento
+echo "composer create-project --repository=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento"
 cd "magento"
 
 # Require the extension to make it usable (autoloading)
