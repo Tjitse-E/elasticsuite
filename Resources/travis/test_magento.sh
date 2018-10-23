@@ -19,10 +19,12 @@ else
   VERSION="${MAGENTO_VERSION%.*}.*"
 fi
 
+echo "==> Copying Magento2 repository credentials here."
 cp $TRAVIS_BUILD_DIR/auth.json .
+cat auth.json
 echo "==> Installing Magento 2 $MAGENTO_EDITION (Version $VERSION) ..."
-echo "composer create-project --repository=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento"
-composer create-project --repository=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento
+echo "composer create-project --repository-url=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento"
+composer create-project --repository-url=https://repo.magento.com magento/project-$MAGENTO_EDITION-edition=$VERSION $STABILITY magento
 
 cd "magento"
 
